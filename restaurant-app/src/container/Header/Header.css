@@ -1,0 +1,17 @@
+.app__header {
+  background-color: #121212;
+  background-position: 100%;
+}
+
+.app__header-h1{
+    font-family: 'Radley', serif;
+    color: var(--color-white);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 117px;
+    font-size: 60px;
+}
+.app__header_img img {
+    width: 120%;
+}
+
