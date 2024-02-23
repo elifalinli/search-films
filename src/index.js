@@ -6,6 +6,7 @@ import HomePage from './components/pages/HomePage';
 import SearchPage from './components/pages/SearchPage';
 import NotFound from './components/pages/NotFound'
 import { AuthProvider } from './hooks/AuthContext';
+import ShowDetailsPage from './components/pages/ShowDetailsPage';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
     element: <SearchPage/>,
     errorElement: <NotFound/>,
   },
+  {
+    path: "search/:type/:id/details",
+    element:<ShowDetailsPage/>,
+    errorElement: <NotFound/>
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
