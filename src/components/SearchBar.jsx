@@ -1,18 +1,23 @@
 import React, { useRef, useEffect } from "react";
-import { CiSearch } from "react-icons/ci";
-import MaxWidthWrapper from "./MaxWidthWrapper";
 
-const SearchBar = () => {
+import SearchButton from "./SearchButton";
+
+const SearchBar = ({ searchValue, onSubmit, onChange }) => {
   const searchInputRef = useRef(null);
 
   useEffect(() => {
     searchInputRef.current.focus();
   }, []);
 
-  return (
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    onSubmit()
+  }
 
+  return (
+    <div>
       <form
-        onSubmit={() => {}}
+        onSubmit={handleSubmit}
         className="flex mt-10 w-full max-w-md border border-gray-900 rounded-md space-x-2"
       >
         <input
@@ -20,12 +25,12 @@ const SearchBar = () => {
           type="search"
           placeholder="Enter a movie/tv show"
           className="w-full px-6 py-3 grow"
+          value={searchValue}
+          onChange={onChange}
         />
-        <button type="submit" className="px-2 ">
-          <CiSearch />
-        </button>
+        <SearchButton />
       </form>
-
+    </div>
   );
 };
 
