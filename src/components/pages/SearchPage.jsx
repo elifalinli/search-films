@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Header from "../Header";
 import Navbar from "../Navbar";
-import { useAuth } from "../../hooks/AuthContext";
 import SearchBar from "../SearchBar";
 import ShowResults from "../ShowResults";
 
 const SearchPage = () => {
-
   const [searchValue, setSearchValue] = useState("");
   const [data, setData] = useState([]);
 
@@ -26,13 +24,16 @@ const SearchPage = () => {
       console.error(error);
     }
   };
-  console.log("data", data, searchValue);
 
   return (
     <MaxWidthWrapper>
       <Navbar />
       <Header props="Welcome!" />
-      <SearchBar onChange={handleChange} onSubmit={handleSearch} searchValue={searchValue} />
+      <SearchBar
+        onChange={handleChange}
+        onSubmit={handleSearch}
+        searchValue={searchValue}
+      />
       <ShowResults data={data} />
     </MaxWidthWrapper>
   );
